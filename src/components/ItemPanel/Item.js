@@ -30,10 +30,10 @@ class Item extends React.Component {
   }
 
   render() {
-    const { src, shape, children } = this.props;
+    const { src, shape, children, ...restProps } = this.props;
 
     return (
-      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown}>
+      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} {...restProps}>
         {src ? <img src={src} alt={shape} draggable={false} /> : children}
       </div>
     );
