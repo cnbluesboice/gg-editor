@@ -21,6 +21,19 @@ class Item extends React.Component {
     }
   }
 
+  handleClick = () => {
+    const { type, size, shape, model } = this.props;
+
+    if (this.page) {
+      this.page.beginAdd(type, {
+        type,
+        size,
+        shape,
+        ...model,
+      });
+    }
+  }
+
   bindEvent() {
     const { onAfterAddPage } = this.props;
 
@@ -33,7 +46,7 @@ class Item extends React.Component {
     const { src, shape, children, ...restProps } = this.props;
 
     return (
-      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} {...restProps}>
+      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} onClick={this.handleClick} {...restProps}>
         {src ? <img src={src} alt={shape} draggable={false} /> : children}
       </div>
     );
