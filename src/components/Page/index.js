@@ -76,6 +76,7 @@ class Page extends React.Component {
     const { addListener } = this;
 
     GRAPH_MOUSE_EVENTS.forEach((event) => {
+      // console.log(event, '1234456');
       const eventName = GRAPH_MOUSE_REACT_EVENTS[event];
 
       addListener(this.graph, `${event}`, this.props[`on${eventName}`]);

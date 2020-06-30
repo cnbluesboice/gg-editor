@@ -9,19 +9,7 @@ class Item extends React.Component {
   }
 
   handleMouseDown = () => {
-    const { type, size, shape, model } = this.props;
-
-    if (this.page) {
-      this.page.beginAdd(type, {
-        type,
-        size,
-        shape,
-        ...model,
-      });
-    }
-  }
-
-  handleClick = () => {
+    // console.log(1111);
     const { type, size, shape, model } = this.props;
 
     if (this.page) {
@@ -46,7 +34,7 @@ class Item extends React.Component {
     const { src, shape, children, ...restProps } = this.props;
 
     return (
-      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} onClick={this.handleClick} {...restProps}>
+      <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} {...restProps}>
         {src ? <img src={src} alt={shape} draggable={false} /> : children}
       </div>
     );

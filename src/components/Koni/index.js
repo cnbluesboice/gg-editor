@@ -26,9 +26,10 @@ class Koni extends Page {
     const { editor } = this.props;
 
     editor.emit(EVENT_BEFORE_ADD_PAGE, { className: KONI_CLASS_NAME });
-
     this.page = new Editor.Koni(this.config);
-
+    // console.log(this.page, 'this.page');
+    // console.log(this.page.addGroup(), 'this.page.add');
+    // console.log(this.page.newGroup(), 'this.page.newGroup');
     editor.add(this.page);
 
     editor.emit(EVENT_AFTER_ADD_PAGE, { page: this.page });
