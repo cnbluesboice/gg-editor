@@ -6597,7 +6597,7 @@ var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
           return {
             name: "forkAndLink",
             render: function render() {
-              return '\n          <div style="\n            width: 11px;\n            height: 11px;\n            cursor: copy;\n            background-image: url(https://gw.alipayobjects.com/zos/rmsportal/yWAiQOmucbYMCpwkvTBP.svg)\n          "></div>\n        ';
+              return '\n          <div id="addEdgeBtnId" style="\n            width: 11px;\n            height: 11px;\n            cursor: copy;\n            background-image: url(https://gw.alipayobjects.com/zos/rmsportal/yWAiQOmucbYMCpwkvTBP.svg)\n          "></div>\n        ';
             },
             bindEvent: function bindEvent(e, t) {
               var n = this,

@@ -1,11 +1,12 @@
 import React from 'react';
 
 class Command extends React.Component {
+
   render() {
-    const { name, children } = this.props;
+    const { name, children, ...restProps } = this.props;
 
     return (
-      <div className="command" data-command={name}>
+      <div className="command" data-command={name} {...restProps}>
         {children}
       </div>
     );

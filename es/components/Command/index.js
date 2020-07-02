@@ -3,6 +3,8 @@ import "core-js/modules/es.function.name";
 import "core-js/modules/es.object.to-string";
 import "core-js/modules/es.reflect.construct";
 import "core-js/modules/es.regexp.to-string";
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _inherits from "@babel/runtime/helpers/inherits";
@@ -31,11 +33,13 @@ var Command = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           name = _this$props.name,
-          children = _this$props.children;
-      return /*#__PURE__*/React.createElement("div", {
+          children = _this$props.children,
+          restProps = _objectWithoutProperties(_this$props, ["name", "children"]);
+
+      return /*#__PURE__*/React.createElement("div", _extends({
         className: "command",
         "data-command": name
-      }, children);
+      }, restProps), children);
     }
   }]);
 

@@ -76,8 +76,9 @@ class Page extends React.Component {
     const { addListener } = this;
 
     GRAPH_MOUSE_EVENTS.forEach((event) => {
-      // console.log(event, '1234456');
+      // console.log(event, '鼠标');
       const eventName = GRAPH_MOUSE_REACT_EVENTS[event];
+      // console.log(this.graph.draw(), 'this.graph');
 
       addListener(this.graph, `${event}`, this.props[`on${eventName}`]);
       addListener(this.graph, `node:${event}`, this.props[`onNode${eventName}`]);
@@ -85,13 +86,16 @@ class Page extends React.Component {
       addListener(this.graph, `group:${event}`, this.props[`onGroup${eventName}`]);
       addListener(this.graph, `guide:${event}`, this.props[`onGuide${eventName}`]);
       addListener(this.graph, `anchor:${event}`, this.props[`onAnchor${eventName}`]);
+      // console.log(`onAnchor${eventName}`, '11111111222334455');
     });
 
     GRAPH_OTHER_EVENTS.forEach((event) => {
+      // console.log(event, 'graph');
       addListener(this.graph, [event], this.props[GRAPH_OTHER_REACT_EVENTS[event]]);
     });
 
     PAGE_EVENTS.forEach((event) => {
+      // console.log(event, 'page');
       addListener(this.page, [event], this.props[PAGE_REACT_EVENTS[event]]);
     });
   }

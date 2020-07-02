@@ -105,19 +105,22 @@ var Page = /*#__PURE__*/function (_React$Component) {
 
       var addListener = this.addListener;
       GRAPH_MOUSE_EVENTS.forEach(function (event) {
-        // console.log(event, '1234456');
-        var eventName = GRAPH_MOUSE_REACT_EVENTS[event];
+        // console.log(event, '鼠标');
+        var eventName = GRAPH_MOUSE_REACT_EVENTS[event]; // console.log(this.graph.draw(), 'this.graph');
+
         addListener(_this2.graph, "".concat(event), _this2.props["on".concat(eventName)]);
         addListener(_this2.graph, "node:".concat(event), _this2.props["onNode".concat(eventName)]);
         addListener(_this2.graph, "edge:".concat(event), _this2.props["onEdge".concat(eventName)]);
         addListener(_this2.graph, "group:".concat(event), _this2.props["onGroup".concat(eventName)]);
         addListener(_this2.graph, "guide:".concat(event), _this2.props["onGuide".concat(eventName)]);
-        addListener(_this2.graph, "anchor:".concat(event), _this2.props["onAnchor".concat(eventName)]);
+        addListener(_this2.graph, "anchor:".concat(event), _this2.props["onAnchor".concat(eventName)]); // console.log(`onAnchor${eventName}`, '11111111222334455');
       });
       GRAPH_OTHER_EVENTS.forEach(function (event) {
+        // console.log(event, 'graph');
         addListener(_this2.graph, [event], _this2.props[GRAPH_OTHER_REACT_EVENTS[event]]);
       });
       PAGE_EVENTS.forEach(function (event) {
+        // console.log(event, 'page');
         addListener(_this2.page, [event], _this2.props[PAGE_REACT_EVENTS[event]]);
       });
     }

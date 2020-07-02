@@ -15,7 +15,7 @@ const allData = {
   nodes: [{ // 代表节点
     type: 'node',
     size: '70*70',
-    shape: 'custom-node',
+    shape: 'koni-custom-node',
     color: '#FA8C16',
     label: '起止节点',
     x: 55,
@@ -27,7 +27,7 @@ const allData = {
   }, {
     type: 'node',
     size: '70*70',
-    shape: 'custom-node',
+    shape: 'koni-custom-node',
     color: '#FA8C16',
     label: '结束节点',
     x: 55,
@@ -78,11 +78,11 @@ export default class thatKoniPage extends Component {
         finalData.edges.push(item);
       }
     });
-    console.log(finalData, 'finalData');
+    // console.log(finalData, 'finalData');
     that.setState({
       data: finalData,
     }, () => {
-      console.log(that.state.data, '12345data');
+      // console.log(that.state.data, '12345data');
     });
   }
 
@@ -100,8 +100,8 @@ export default class thatKoniPage extends Component {
   }
 
   onMouseUp(e) {
-    console.log(e, '鼠标弹起');
-    console.log(koniRef.page.getItems(), 'koniRef.page.getItems()');
+    // console.log(e, '鼠标弹起');
+    // console.log(koniRef.page.getItems(), 'koniRef.page.getItems()');
     const curId = '481fbb1a';
     if (e.item && e.item.id === curId) {
       const allItems = koniRef.page.getItems();
@@ -113,11 +113,15 @@ export default class thatKoniPage extends Component {
       const dataSource = arr.filter((item) => {
         return item.target ? item.target !== curId : item;
       });
-      console.log(dataSource, 'dataSource11111');
+      // console.log(dataSource, 'dataSource11111');
       setTimeout(() => {
         this.formatData(dataSource, this);
       }, 0);
     }
+  }
+
+  onDragStart(...e) {
+    console.log(e, '监听');
   }
 
   render() {
@@ -134,7 +138,7 @@ export default class thatKoniPage extends Component {
             <KoniItemPanel />
           </Col>
           <Col span={16} className={styles.editorContent}>
-            <Koni className={styles.koni} data={data} onNodeClick={(e) => { this.Fn(e); }} onEdgeClick={() => this.lineFn()} onMouseUp={(e) => { this.onMouseUp(e); }} ref={(e) => { koniRef = e; }} />
+            <Koni className={styles.koni} data={data} onNodeClick={(e) => { this.Fn(e); }} onEdgeClick={() => this.lineFn()} onMouseUp={(e) => { this.onMouseUp(e); }} onDragStart={(e) => { this.onDragStart(e); }} ref={(e) => { koniRef = e; }} />
           </Col>
           <Col span={4} className={styles.editorSidebar}>
             <KoniDetailPanel />

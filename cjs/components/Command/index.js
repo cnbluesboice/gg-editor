@@ -17,6 +17,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
@@ -48,11 +52,12 @@ var Command = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           name = _this$props.name,
-          children = _this$props.children;
-      return /*#__PURE__*/_react["default"].createElement("div", {
+          children = _this$props.children,
+          restProps = (0, _objectWithoutProperties2["default"])(_this$props, ["name", "children"]);
+      return /*#__PURE__*/_react["default"].createElement("div", (0, _extends2["default"])({
         className: "command",
         "data-command": name
-      }, children);
+      }, restProps), children);
     }
   }]);
   return Command;
