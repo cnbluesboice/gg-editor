@@ -120,6 +120,14 @@ export default class thatKoniPage extends Component {
     }
   }
 
+  onNodeMouseEnter() {
+    const addEdgeBtnId = document.getElementById('addEdgeBtnId');
+    console.log(addEdgeBtnId, 'addEdgeBtnId');
+    addEdgeBtnId.onmousedown = (e) => {
+      console.log(e, 22222);
+    };
+  }
+
   onDragStart(...e) {
     console.log(e, '监听');
   }
@@ -138,7 +146,7 @@ export default class thatKoniPage extends Component {
             <KoniItemPanel />
           </Col>
           <Col span={16} className={styles.editorContent}>
-            <Koni className={styles.koni} data={data} onNodeClick={(e) => { this.Fn(e); }} onEdgeClick={() => this.lineFn()} onMouseUp={(e) => { this.onMouseUp(e); }} onDragStart={(e) => { this.onDragStart(e); }} ref={(e) => { koniRef = e; }} />
+            <Koni className={styles.koni} data={data} onNodeClick={(e) => { this.Fn(e); }} onEdgeClick={() => this.lineFn()} onMouseUp={(e) => { this.onMouseUp(e); }} onNodeMouseEnter={(e) => { this.onNodeMouseEnter(e); }} onDragStart={(e) => { this.onDragStart(e); }} ref={(e) => { koniRef = e; }} />
           </Col>
           <Col span={4} className={styles.editorSidebar}>
             <KoniDetailPanel />
