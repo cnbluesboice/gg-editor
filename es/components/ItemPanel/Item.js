@@ -92,8 +92,7 @@ var Item = /*#__PURE__*/function (_React$Component) {
         onMouseDown: this.handleMouseDown
       }, restProps), src ? /*#__PURE__*/React.createElement("img", {
         src: src,
-        alt: shape,
-        draggable: false
+        alt: shape
       }) : children);
     }
   }]);

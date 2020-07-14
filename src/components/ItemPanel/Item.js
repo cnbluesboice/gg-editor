@@ -35,7 +35,10 @@ class Item extends React.Component {
 
     return (
       <div style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} {...restProps}>
-        {src ? <img src={src} alt={shape} draggable={false} /> : children}
+        {/* 可拖拽 */}
+        {/* {src ? <img src={src} alt={shape} draggable={false} /> : children} */}
+        {/* // 不可拖拽 */}
+        {src ? <img src={src} alt={shape} /> : children}
       </div>
     );
   }
